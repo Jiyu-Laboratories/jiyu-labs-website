@@ -42,20 +42,4 @@ bundle exec jekyll serve      # http://127.0.0.1:4000
 
 ## Hosting and domain
 
-GitHub Pages deploys from the `main` branch (root folder). The custom domain is `jiyu-labs.com` (see Settings → Pages).
-
-DNS records at the domain registrar:
-
-| Type  | Name  | Value |
-|-------|-------|-------|
-| A     | @     | 185.199.108.153 |
-| A     | @     | 185.199.109.153 |
-| A     | @     | 185.199.110.153 |
-| A     | @     | 185.199.111.153 |
-| AAAA  | @     | 2606:50c0:8000::153 |
-| AAAA  | @     | 2606:50c0:8001::153 |
-| AAAA  | @     | 2606:50c0:8002::153 |
-| AAAA  | @     | 2606:50c0:8003::153 |
-| CNAME | www   | jiyu-laboratories.github.io |
-
-The domain should also be verified at the organization level (Org Settings → Pages → Verified domains) to prevent domain takeover.
+GitHub Pages deploys from the `main` branch (root folder) on every commit. The custom domain `jiyu-labs.com` is set in Settings → Pages (stored in the `CNAME` file; don't delete it), with HTTPS enforced. DNS is managed in Squarespace Domains and the domain is verified at the organization level.
