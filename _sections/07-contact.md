@@ -10,7 +10,7 @@ type: contact
 
 # ▼ GoogleフォームのURL（フォームの「送信」→ リンクのURLを貼り付け）
 #   空欄の場合、ボタンは表示されません。
-form_url: ""
+form_url: "https://docs.google.com/forms/d/e/1FAIpQLSeNZnWOlYRkKAcxRPal9mLPxQPKo_wfM0OybGMGrkz5aUC17g/viewform?usp=publish-editor"
 # true にすると、フォームをページ内に埋め込んで表示します
 embed_form: false
 button_text: お問い合わせフォームを開く
