@@ -1,0 +1,16 @@
+{%- assign s = include.s -%}
+<div class="contact">
+  {% if s.content != blank %}<div class="prose prose--center">{{ s.content | markdownify }}</div>{% endif %}
+
+  {% if s.form_url and s.form_url != "" %}
+    {% if s.embed_form %}
+      {% assign sep = "?" %}{% if s.form_url contains "?" %}{% assign sep = "&" %}{% endif %}
+      <div class="contact__embed">
+        <iframe src="{{ s.form_url }}{{ sep }}embedded=true" title="お問い合わせフォーム" loading="lazy">読み込んでいます…</iframe>
+      </div>
+    {% endif %}
+    <div class="contact__action">
+      <a class="button button--wide" href="{{ s.form_url }}" target="_blank" rel="noopener">{{ s.button_text | default: "お問い合わせフォームを開く" }}</a>
+    </div>
+  {% endif %}
+</div>

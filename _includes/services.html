@@ -1,0 +1,20 @@
+{%- assign services = site.services | sort: "order" -%}
+<div class="cards">
+  {% for card in services %}{% unless card.hidden %}
+  <article class="card">
+    {% if card.image %}
+    <div class="card__image">
+      <img src="{{ card.image | relative_url }}" alt="{{ card.image_alt | default: card.title | escape }}" loading="lazy">
+    </div>
+    {% endif %}
+    <h3 class="card__title">{{ card.title }}</h3>
+    {% if card.target %}<p class="card__target">想定顧客：{{ card.target }}</p>{% endif %}
+    <div class="card__body prose prose--small">{{ card.content | markdownify }}</div>
+    {% if card.button_url %}
+    <div class="card__action">
+      <a class="button" href="{{ card.button_url }}" target="_blank" rel="noopener">{{ card.button_text | strip | newline_to_br }}</a>
+    </div>
+    {% endif %}
+  </article>
+  {% endunless %}{% endfor %}
+</div>

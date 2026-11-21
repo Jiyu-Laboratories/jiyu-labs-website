@@ -1,0 +1,26 @@
+{%- assign s = include.s -%}
+<section id="{{ s.anchor }}" class="section section--{{ s.background | default: 'white' }} section--{{ s.type | default: 'text' }}">
+  <div class="container">
+    <header class="section-head">
+      {% if s.label %}<p class="section-head__label">{{ s.label }}</p>{% endif %}
+      <h2 class="section-head__title">{{ s.title }}</h2>
+      {% if s.subtitle %}<p class="section-head__subtitle">{{ s.subtitle | strip | newline_to_br }}</p>{% endif %}
+    </header>
+
+    {% case s.type %}
+      {% when 'services' %}
+        {% include services.html %}
+      {% when 'about' %}
+        {% include about.html s=s %}
+      {% when 'columns' %}
+        {% assign cols = s.content | split: "<!-- column -->" %}
+        <div class="columns">
+          {% for col in cols %}<div class="prose">{{ col | markdownify }}</div>{% endfor %}
+        </div>
+      {% when 'contact' %}
+        {% include contact.html s=s %}
+      {% else %}
+        <div class="prose">{{ s.content | markdownify }}</div>
+    {% endcase %}
+  </div>
+</section>
